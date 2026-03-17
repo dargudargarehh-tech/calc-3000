@@ -1,0 +1,114 @@
+:root {
+    --theme-color: #00ff00;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    background: #000;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--theme-color);
+}
+
+canvas {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#dvd-logo {
+    position: fixed;
+    width: 85px; height: 45px;
+    z-index: 10;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px var(--theme-color));
+    /* Procedural SVG Logo */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ctext y='35' font-family='Arial' font-weight='bold' font-size='28' fill='%2300ff00'%3EDVD%3C/text%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+}
+
+.calc-panel {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 480px; height: 760px;
+    max-width: 95vw; max-height: 90vh;
+    background: rgba(0, 15, 0, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--theme-color);
+    border-radius: 15px;
+    display: flex; flex-direction: column;
+    z-index: 100;
+    box-shadow: 0 0 50px rgba(0, 255, 0, 0.15);
+}
+
+.wv-nav {
+    display: flex;
+    background: rgba(0, 255, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+    flex-wrap: wrap;
+}
+
+.wv-nav button {
+    flex: 1; padding: 12px;
+    border: none; background: none;
+    color: inherit; cursor: pointer;
+    font-family: inherit; font-size: 9px;
+    opacity: 0.4; text-transform: uppercase;
+}
+
+.wv-nav button.active {
+    opacity: 1;
+    background: rgba(0, 255, 0, 0.1);
+    border-bottom: 2px solid var(--theme-color);
+}
+
+.wv-content {
+    flex: 1; padding: 20px;
+    overflow-y: auto;
+    display: flex; flex-direction: column;
+}
+
+.input-wrap {
+    display: flex; align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 2px solid var(--theme-color);
+    margin-bottom: 10px;
+}
+
+.wv-input {
+    flex: 1; background: none; border: none;
+    color: #fff; text-align: center;
+    outline: none; font-family: inherit;
+    padding: 12px; font-size: 2.5rem;
+}
+
+.del-btn { padding: 0 15px; color: #ff4444; cursor: pointer; font-size: 20px; }
+
+#out { font-size: 100px; font-weight: 900; text-align: center; margin: 20px 0; }
+
+.wv-btn {
+    background: rgba(0, 255, 0, 0.08);
+    border: 1px solid var(--theme-color);
+    color: inherit; padding: 12px;
+    cursor: pointer; font-family: inherit;
+    font-size: 10px; margin-top: 8px;
+    border-radius: 4px; text-transform: uppercase;
+}
+
+.match-glow {
+    text-shadow: 0 0 30px var(--theme-color);
+    animation: pulse 0.3s infinite alternate;
+    color: #fff !important;
+}
+
+@keyframes pulse { from { transform: scale(1); } to { transform: scale(1.05); } }
+
+.vault-item {
+    display: flex; justify-content: space-between;
+    padding: 10px; border-bottom: 1px solid rgba(0, 255, 0, 0.1);
+    font-size: 11px;
+}
+
+iframe { width: 100%; height: 100%; border: none; background: white; }
